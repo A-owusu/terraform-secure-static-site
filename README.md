@@ -2,10 +2,12 @@
 
 A production-style static website built with Terraform:
 
+- This deployment uses CloudFront’s default domain (`*.cloudfront.net`) to avoid domain costs.
+- HTTPS is still enabled via CloudFront’s default certificate.
+- A custom domain can be added later with ACM + Route53.
+
 - **S3 (private)** bucket for site content (no public access)
 - **CloudFront** CDN in front of S3 using **Origin Access Control (OAC)**
-- **ACM certificate (us-east-1)** for HTTPS on CloudFront
-- **Route53** DNS record to map your domain to CloudFront
 - Optional **AWS WAFv2** (AWS Managed Rules: Common Rule Set)
 - **CloudFront access logs** to a separate S3 bucket
 - Optional bootstrap module: **remote state** (S3 + DynamoDB locking)
@@ -24,15 +26,14 @@ User → CloudFront (HTTPS) → S3 (private)
 
 ## Setup
 
-### 1) Create a tfvars file (do not commit it)
+## Configuration
+
+## 1) Create a tfvars file (do not commit it)
 
 Create `terraform.tfvars`:
 
 ```hcl
-domain_name = "example.com"
-subdomain   = "www"
-aws_region  = "eu-west-2"
-enable_waf  = true
-
-# optional:
-# create_state_backend = true
+aws_region           = "eu-west-2"
+project_name         = "tf-secure-static-site"
+enable_waf           = true
+create_state_backend = false
