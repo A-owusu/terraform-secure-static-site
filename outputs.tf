@@ -1,6 +1,6 @@
 output "site_url" {
-  description = "Public URL of the website."
-  value       = "https://${module.site.fqdn}"
+  description = "Public URL of the website (CloudFront default domain)."
+  value       = "https://${module.site.cloudfront_domain}"
 }
 
 output "cloudfront_domain" {

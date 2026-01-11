@@ -10,16 +10,7 @@ variable "project_name" {
   default     = "tf-secure-static-site"
 }
 
-variable "domain_name" {
-  type        = string
-  description = "Apex domain name that already exists in Route53 (e.g. example.com)."
-}
 
-variable "subdomain" {
-  type        = string
-  description = "Subdomain for the site (e.g. www)."
-  default     = "www"
-}
 
 variable "enable_waf" {
   type        = bool

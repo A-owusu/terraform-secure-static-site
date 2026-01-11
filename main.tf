@@ -1,6 +1,4 @@
-locals {
-  fqdn = "${var.subdomain}.${var.domain_name}"
-}
+# no domain needed anymore
 
 # Optional: bootstrap remote Terraform state (run once)
 module "state_backend" {
@@ -15,12 +13,9 @@ module "site" {
   source = "./modules/site"
 
   providers = {
-    aws      = aws
-    aws.use1 = aws.use1
+    aws = aws
   }
 
   project_name = var.project_name
-  domain_name  = var.domain_name
-  fqdn         = local.fqdn
   enable_waf   = var.enable_waf
 }
