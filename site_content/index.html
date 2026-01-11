@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Terraform Secure Static Site</title>
+    <style>
+      body { font-family: system-ui, Arial, sans-serif; margin: 48px; line-height: 1.5; }
+      code { background: #f3f3f3; padding: 2px 6px; border-radius: 6px; }
+      .card { border: 1px solid #e5e5e5; border-radius: 12px; padding: 16px 20px; max-width: 720px; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>It works ✅</h1>
+      <p>
+        This static site is deployed with <code>Terraform</code> using
+        <code>S3 + CloudFront + ACM + Route53</code> (and optional <code>WAF</code>).
+      </p>
+      <p>
+        Next: upload this file to the content bucket with:
+        <code>aws s3 sync ./site_content s3://&lt;bucket&gt;</code>
+      </p>
+    </div>
+  </body>
+</html>
